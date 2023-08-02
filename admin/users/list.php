@@ -16,9 +16,9 @@
                 <h4> <img src="./admin/images/list-1497-svgrepo-com.svg" alt=""> DANH SÁCH NGƯỜI DÙNG</h4>
                 <!-- Button trigger modal -->
                 <div class="action-btn">
-                    <a href="./index.php?pages=category&action=list" class="btn btn-outline-danger">Phân loại</a>
-                    <a href="./index.php?pages=product&action=list" class="btn btn-outline-danger">Sản Phẩm</a>
-                    <a href="./index.php?pages=users&action=list" class="btn btn-outline-danger">Người dùng</a>
+                    <a href="./index.php?pages=category&action=list" class="btn btn-outline-warning">Phân loại</a>
+                    <a href="./index.php?pages=product&action=list" class="btn btn-outline-success">Sản Phẩm</a>
+                    <a href="./index.php?pages=users&action=list" class="btn btn-outline-primary">Người dùng</a>
                     <a href="./index.php?pages=users&action=add" class="btn btn-outline-danger">Thêm</a>
                 </div>
 
