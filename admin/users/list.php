@@ -20,6 +20,7 @@
                     <a href="./index.php?pages=product&action=list" class="btn btn-outline-success">Sản Phẩm</a>
                     <a href="./index.php?pages=users&action=list" class="btn btn-outline-primary">Người dùng</a>
                     <a href="./index.php?pages=users&action=add" class="btn btn-outline-danger">Thêm</a>
+                    <a href="./admin/login.php" class="btn btn-outline-dark" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất? ')">Đăng xuất</a>
                 </div>
 
             </div>
