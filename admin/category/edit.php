@@ -21,17 +21,17 @@
             <form method="post" action="" class="row g-3 needs-validation was-validated">
                 <input type="hidden" name="category_id" value="<?= $row['id'] ?>">
                 <div class="col-md-12">
-                    <label for="username" class="form-label">Tên sản phẩm</label>
+                    <label for="username" class="form-label">Tên thương hiệu</label>
                     <input type="text" class="form-control" name="username" required value="<?= $row['name'] ?>">
                     <div class="invalid-feedback">
                         Sản phẩm không được để trống.
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <label for="note" class="form-label">Ghi chú</label>
+                    <label for="note" class="form-label">Thể loại</label>
                     <input type="text" class="form-control" name="note" required value="<?= $row['note'] ?>">
                     <div class="invalid-feedback">
-                        Ghi chú không được để trống.
+                        Thể loại không được để trống.
                     </div>
                 </div>
                 <div class="col-12">

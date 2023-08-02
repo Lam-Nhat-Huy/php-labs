@@ -29,7 +29,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Tên sản phẩm</th>
-                            <th scope="col">Phân loại</th>
+                            <th scope="col">Thể loại</th>
                             <th scope="col">Giá</th>
                             <th scope="col">Số lượng</th>
                             <th scope="col">Hình ảnh</th>

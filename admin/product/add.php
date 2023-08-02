@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-6">
                 <label for="description" class="form-label">Mô tả</label>
-                <input type="text" class="form-control" name="description" required>
+                <textarea name="description" id="" cols="84" rows="2"></textarea>
                 <div class="invalid-feedback">
                     Mô tả không được để trống.
                 </div>
@@ -51,16 +51,28 @@
             </div>
 
             <div class="col-md-12">
-                <label class="form-label">Category</label>
-                <input type="number" class="form-control" name="category_id" required>
+                <label class="form-label">Thể loại</label>
+                <select class="form-select" name="category_id" required aria-label=".form-select-sm exampl  e">
+                    <?php
+                    $select_category_id = mysqli_query($conn, "SELECT * FROM category");
+                    if (mysqli_num_rows($select_category_id) > 0) {
+                        while ($row = mysqli_fetch_array($select_category_id)) {
+                    ?>
+                            <option value="<?= $row['id'] ?>"><?= $row['note'] ?> </option>
+                    <?php
+                        }
+                    }
+                    ?>
+                </select>
                 <div class="invalid-feedback">
-                    Id phân loại không được để trống.
+                    Thể loại không được để trống.
                 </div>
+
             </div>
 
 
             <div class="col-12">
-                <a href="/index?pages=users&action=list" type="button" class="btn btn-secondary">Hủy</a>
+                <a href="/index?pages=product&action=list" type="button" class="btn btn-secondary">Hủy</a>
                 <button class="btn btn-success" name="addProduct">Thêm</button>
             </div>
         </form>

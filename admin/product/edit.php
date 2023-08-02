@@ -14,11 +14,13 @@
     <div class="container mt-5">
         <h4>Chỉnh sửa sản phẩm</h4>
         <?php
-        $user_id = mysqli_real_escape_string($conn, $_GET['id']);
+        $user_id = $_GET['id'];
         $query = mysqli_query($conn, "SELECT * FROM products WHERE id = '$user_id'");
         while ($row = mysqli_fetch_array($query)) {
         ?>
             <form method="post" class="row g-3 needs-validation was-validated" enctype="multipart/form-data">
+                <input type="hidden" name="user_id" value="<?= $row['id'] ?>">
+
                 <div class="col-md-6">
                     <label for="username" class="form-label">Tên sản phẩm</label>
                     <input type="text" class="form-control" name="username" required value="<?= $row['name'] ?>">
@@ -49,7 +51,7 @@
                 </div>
                 <div class="col-md-12">
                     <label for="image" class="form-label">Hình ảnh</label>
-                    <input type="text" class="form-control" name="image" required value="<?= $row['image'] ?>">
+                    <input type="file" class="form-control" name="image" required value="<?= $row['image'] ?>">
                     <div class="invalid-feedback">
                         Hình ảnh không được để trống.
                     </div>
@@ -91,7 +93,7 @@ if (isset($_POST['editProduct'])) {
 
     $category_id = $_POST['category_id'];
 
-    $query = mysqli_query($conn, "UPDATE `products` SET `name` = '$username', `price` = '$price', `quantity` = '$quantity', `description` = '$description', `image` = '$image', `category_id` = '$category_id' WHERE id ='$user_id' ;");
+    $query = mysqli_query($conn, "UPDATE products SET name='$username', price='$price', quantity='$quantity', description='$description', image='$image', category_id='$category_id' WHERE id='$user_id'");
     if ($query) {
         header('Location: ./index.php?pages=product&action=list');
     } else {
@@ -101,7 +103,5 @@ if (isset($_POST['editProduct'])) {
     }
 }
 ?>
-
-
 
 <?php ob_end_flush(); ?>

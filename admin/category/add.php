@@ -15,21 +15,21 @@
         <h4>Thêm mới người dùng</h4>
         <form method="post" class="row g-3 needs-validation was-validated">
             <div class="col-md-12">
-                <label for="username" class="form-label">Tên sản phẩm</label>
+                <label for="username" class="form-label">Tên thương hiệu</label>
                 <input type="text" class="form-control" name="username" required>
                 <div class="invalid-feedback">
-                    Sản phẩm không được để trống.
+                    Thương hiệu không được để trống.
                 </div>
             </div>
             <div class="col-md-12">
-                <label for="note" class="form-label">Ghi chú</label>
+                <label for="note" class="form-label">Thể loại</label>
                 <input type="text" class="form-control" name="note" required>
                 <div class="invalid-feedback">
-                    Ghi chú không được để trống.
+                    Thể loại không được để trống.
                 </div>
             </div>
             <div class="col-12">
-                <a href="/index?pages=users&action=list" type="button" class="btn btn-secondary">Hủy</a>
+                <a href="/index?pages=category&action=list" type="button" class="btn btn-secondary">Hủy</a>
                 <button class="btn btn-success" name="addCategory">Thêm</button>
             </div>
         </form>
