@@ -58,7 +58,7 @@
                                     <?= $row['quantity'] ?>
                                 </td>
                                 <td>
-                                    <img src="./admin/images/<?= $row['image'] ?>" alt="" width="100">
+                                    <img src="./admin/images/<?= $row['image'] ?>" alt="" width="100" height="60">
                                 </td>
 
                                 <td class="d-flex justify-content-evenly p-4">

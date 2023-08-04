@@ -93,7 +93,6 @@ if (isset($_POST['addProduct'])) {
     $image = $_FILES['image']['name'];
     $image_tmp = $_FILES['image']['tmp_name'];
 
-
     $category_id = $_POST['category_id'];
 
     if (!empty($username) && !empty($price) && !empty($quantity) && !empty($description)  && !empty($image) && !empty($category_id)) {
