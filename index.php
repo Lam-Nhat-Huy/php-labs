@@ -68,6 +68,39 @@ if (isset($_GET['pages'])) {
             }
             break;
 
+        case 'order':
+            switch ($_GET['action']) {
+                case 'list':
+                    include './admin/order/list.php';
+                    break;
+                case 'add':
+                    include './admin/order/add.php';
+                    break;
+                case 'edit':
+                    include './admin/order/edit.php';
+                    break;
+                case 'delete':
+                    include './admin/order/delete.php';
+                    break;
+                default:
+                    include './admin/order/list.php';
+                    break;
+            }
+            break;
+
+        case 'home':
+            switch ($_GET['action']) {
+                case 'home':
+                    include './product/home.php';
+                    break;
+                case 'detail':
+                    include './product/product_detail.php';
+                    break;
+                default:
+                    include './product/homep.php';
+                    break;
+            }
+            break;
         default:
             break;
     }

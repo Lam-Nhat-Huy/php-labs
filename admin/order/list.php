@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý Người dùng</title>
+    <title>Quản lý đơn hàng</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./admin/css/main.css">
@@ -14,16 +14,14 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-header d-flex align-items-center justify-content-between">
-                <h4> <img src="./admin/images/list-1497-svgrepo-com.svg" alt=""> DANH SÁCH NGƯỜI DÙNG</h4>
+                <h4> <img src="./admin/images/list-1497-svgrepo-com.svg" alt=""> DANH SÁCH ĐƠN HÀNG</h4>
                 <!-- Button trigger modal -->
                 <div class="action-btn">
-                    <a href="./index.php?pages=home&action=home" class="btn btn-outline-danger">Home</a>
                     <a href="./index.php?pages=category&action=list" class="btn btn-outline-warning">Phân loại</a>
                     <a href="./index.php?pages=product&action=list" class="btn btn-outline-success">Sản Phẩm</a>
                     <a href="./index.php?pages=users&action=list" class="btn btn-outline-primary">Người dùng</a>
                     <a href="./index.php?pages=order&action=list" class="btn btn-outline-pink">Đơn hàng</a>
-                    <a href="./index.php?pages=users&action=add" class="btn btn-outline-danger">Thêm</a>
-                    <a href="./admin/login.php" class="btn btn-outline-dark" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất? ')">Đăng xuất</a>
+                    <a href="./index.php?pages=order&action=add" class="btn btn-outline-danger">Thêm</a>
                 </div>
 
             </div>
@@ -32,57 +30,47 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Họ và tên</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">Tên người dùng</th>
                             <th scope="col">Số điện thoại</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Địa chỉ</th>
-                            <th scope="col">Căn cước công dân</th>
-                            <th scope="col">Giới tính</th>
-                            <th scope="col">Ngày sinh</th>
-                            <th scope="col">Chức vụ</th>
-
+                            <th scope="col">Ghi chú</th>
+                            <th scope="col">Số lượng</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $query_user = mysqli_query($conn, 'SELECT * FROM `users`  ORDER BY `username` DESC ');
-                        if (mysqli_num_rows($query_user) > 0) {
-                            while ($fetch_user = mysqli_fetch_array($query_user)) {
+                        $select_order = mysqli_query($conn, "SELECT * FROM orders");
+                        if (mysqli_num_rows($select_order) > 0) {
+                            while ($row = mysqli_fetch_array($select_order)) {
                         ?>
-                                <tr style="vertical-align: middle;">
+                                <tr>
                                     <td>
-                                        <?= $fetch_user['id'] ?>
+                                        <?= $row['id'] ?>
                                     </td>
                                     <td>
-                                        <?= $fetch_user['username'] ?>
+                                        <?= $row['customer_name'] ?>
                                     </td>
                                     <td>
-                                        <?= $fetch_user['email'] ?>
+                                        <?= $row['customer_phone'] ?>
                                     </td>
                                     <td>
-                                        <?= $fetch_user['phone'] ?>
+                                        <?= $row['customer_email'] ?>
                                     </td>
                                     <td>
-                                        <?= $fetch_user['address'] ?>
+                                        <?= $row['customer_address'] ?>
                                     </td>
                                     <td>
-                                        <?= $fetch_user['cccd'] ?>
+                                        <?= $row['note'] ?>
                                     </td>
                                     <td>
-                                        <?= $fetch_user['gender'] ?>
+                                        <?= $row['total'] ?>
                                     </td>
-                                    <td>
-                                        <?= $fetch_user['date'] ?>
-                                    </td>
-                                    <td>
-                                        <?= $fetch_user['role_id'] == 1 ? 'Quản Trị (Admin)' : 'Khách hàng (User)' ?>
-                                    </td>
-
                                     <td class="d-flex justify-content-evenly">
-                                        <a href="./index.php?pages=users&action=edit&id=<?= $fetch_user['id'] ?>" class="btn btn-info btn-sm"><img src="./admin/images/edit-1-svgrepo-com.svg" alt=""></a>
-                                        <form action="./index.php?pages=users&action=delete" method="post">
-                                            <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger btn-sm" name="deleteUser" value="<?= $fetch_user['id'] ?>"><img src="./admin/images/delete-2-svgrepo-com.svg" alt=""></i>
+                                        <a href="./index.php?pages=order&action=edit&id=<?= $row['id'] ?>" class="btn btn-info btn-sm"><img src="./admin/images/edit-1-svgrepo-com.svg" alt=""></a>
+                                        <form action="./index.php?pages=order&action=delete" method="post">
+                                            <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger btn-sm" name="deleteCategory" value="<?= $row['id'] ?>"><img src="./admin/images/delete-2-svgrepo-com.svg" alt=""></i>
                                             </button>
                                         </form>
                                     </td>
@@ -95,6 +83,7 @@
                 </table>
             </div>
         </div>
+
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

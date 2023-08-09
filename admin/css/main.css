@@ -1,0 +1,8 @@
+.btn-outline-pink {
+  color: rgb(154, 103, 255) !important;
+  border-color: rgb(154, 103, 255) !important;
+}
+.btn-outline-pink:hover {
+  color: #fff !important;
+  background-color: rgb(154, 103, 255) !important;
+}

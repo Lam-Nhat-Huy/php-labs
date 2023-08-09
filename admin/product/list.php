@@ -7,6 +7,7 @@
     <title>Quản lý Sản Phẩm</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./admin/css/main.css">
 </head>
 
 <body>
@@ -19,6 +20,7 @@
                     <a href="./index.php?pages=category&action=list" class="btn btn-outline-warning">Phân loại</a>
                     <a href="./index.php?pages=product&action=list" class="btn btn-outline-success">Sản Phẩm</a>
                     <a href="./index.php?pages=users&action=list" class="btn btn-outline-primary">Người dùng</a>
+                    <a href="./index.php?pages=order&action=list" class="btn btn-outline-pink">Đơn hàng</a>
                     <a href="./index.php?pages=product&action=add" class="btn btn-outline-danger">Thêm</a>
                 </div>
 

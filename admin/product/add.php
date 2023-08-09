@@ -52,7 +52,7 @@
 
             <div class="col-md-12">
                 <label class="form-label">Thể loại</label>
-                <select class="form-select" name="category_id" required aria-label=".form-select-sm exampl  e">
+                <select class="form-select" name="category_id" required aria-label=".form-select-sm example">
                     <?php
                     $select_category_id = mysqli_query($conn, "SELECT * FROM category");
                     if (mysqli_num_rows($select_category_id) > 0) {
@@ -92,6 +92,7 @@ if (isset($_POST['addProduct'])) {
 
     $image = $_FILES['image']['name'];
     $image_tmp = $_FILES['image']['tmp_name'];
+
 
     $category_id = $_POST['category_id'];
 
